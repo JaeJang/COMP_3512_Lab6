@@ -23,6 +23,7 @@ void Genetic::Populate()
 		for (int j = 0; j < CITIES_IN_TOUR; ++j) {
 			population[i].permutation.push_back(cities_to_visit[j]);
 		}
-		population
+		population[i].shuffle_cities(SHUFFLES, CITIES_IN_TOUR);
+		population[i].setFitness(0);
 	}
 }

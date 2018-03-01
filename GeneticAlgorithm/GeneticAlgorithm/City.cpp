@@ -7,6 +7,7 @@ City & City::operator=(City lhs)
 	return *this;
 }
 
+
 void swap(City & lsh, City & rhs)
 {
 	std::swap(lsh.name, rhs.name);

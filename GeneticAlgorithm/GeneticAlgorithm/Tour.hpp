@@ -11,6 +11,7 @@ public:
 
 	void shuffle_cities(int, int);
 	void swap_cities(int, int);
+	void setFitness(double value);
 
 
 private:
