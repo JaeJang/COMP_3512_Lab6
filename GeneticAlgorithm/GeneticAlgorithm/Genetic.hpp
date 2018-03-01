@@ -2,10 +2,18 @@
 #include <cmath>
 #include <random>
 #include <vector>
+#include "City.hpp"
+#include "Tour.hpp"
+
+using namespace std;
 
 class Genetic {
 
 public:
+	constexpr static int POPULATION_SIZE = 30;
+
+	constexpr static int CITIES_IN_TOUR = 20;
+
 	// A shuffle consists of swaps
 	constexpr static int SHUFFLES = 32;
 
@@ -38,6 +46,8 @@ public:
 
 	};
 
+	void Init_Cities();
+	void Populate();
 private:
 	/* Variables */
 	int    i = 0, j = 0, iterations = 0;
@@ -46,5 +56,6 @@ private:
 	double best_iteration_distance = 0.0;
 	double improvement_factor = 0.3;
 
-	Tour[POPULATION_SIZE] population
+	vector<City> cities_to_visit;
+	vector<Tour> population;
 };
