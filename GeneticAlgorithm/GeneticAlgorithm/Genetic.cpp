@@ -1,6 +1,6 @@
 #include "Genetic.hpp"
 
-void Genetic::Init_Cities(vector<City> & cities_to_visit)
+void Init_Cities(vector<City> & cities_to_visit)
 {
 	for (int i = 0; i < CITIES_IN_TOUR; ++i) {
 		cities_to_visit.push_back(
@@ -15,7 +15,7 @@ void Genetic::Init_Cities(vector<City> & cities_to_visit)
 
 }
 
-void Genetic::Populate(vector<Tour> & population)
+void Populate(vector<Tour> & population, const vector<City> & cities_to_visit)
 {
 	for (int i = 0; i < POPULATION_SIZE; ++i) {
 
@@ -26,4 +26,21 @@ void Genetic::Populate(vector<Tour> & population)
 		population[i].shuffle_cities(SHUFFLES, CITIES_IN_TOUR);
 		population[i].setFitness(0);
 	}
+}
+
+int determine_fitness(vector<Tour> population)
+{	
+	int index_of_shortest_tour = 0;
+	double shortest_tour_in_population = (double)RAND_MAX;
+	double candidate_distance = 0.0;
+
+	for (int i = 0; i < POPULATION_SIZE; ++i) {
+		candidate_distance = population[i].get_tour_distane(CITIES_IN_TOUR);
+		population[i].setFitness(FITNESS_SCALER / candidate_distance);
+		if (candidate_distance <= shortest_tour_in_population) {
+			index_of_shortest_tour = i;
+			shortest_tour_in_population = candidate_distance;
+		}
+	}
+	return index_of_shortest_tour;
 }

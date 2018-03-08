@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClInclude Include="City.hpp" />
     <ClInclude Include="Genetic.hpp" />
+    <ClInclude Include="Main.h" />
     <ClInclude Include="Tour.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

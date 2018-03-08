@@ -1,6 +1,7 @@
 #include "Tour.hpp"
 #include <random>
 #include <ctime>
+#include <cmath>
 #include "City.hpp"
 
 
@@ -32,3 +33,16 @@ std::vector<City> Tour::getPermutation()
 {
 	return permutation;
 }
+
+double Tour::get_tour_distane(const int cities_in_tour)
+{	
+	double distance = 0.0;
+	for (int i = 0; i < cities_in_tour; ++i) {
+		distance += 
+			get_distance_between_cities(permutation[i], permutation[(i + 1) % cities_in_tour]);
+
+	}
+	return distance;
+}
+
+
