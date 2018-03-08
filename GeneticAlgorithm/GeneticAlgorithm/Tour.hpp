@@ -13,10 +13,11 @@ public:
 	void swap_cities(int, int);
 	void setFitness(double value);
 	std::vector<City> getPermutation();
+	double getFitness();
 	double get_tour_distane(const int cities_in_tour);
 	//double get_distance_between_cities(City & a, City & b);
 
 private:
-	double fintness = 0.0;
+	double fitness = 0.0;
 	std::vector<City> permutation;
 };

@@ -24,9 +24,13 @@ void Tour::swap_cities(int index_one, int index_two)
 	permutation[index_two] = temp;
 }
 
+double Tour::getFitness() {
+	return fitness;
+}
+
 void Tour::setFitness(double value)
 {
-	fintness = value;
+	fitness = value;
 }
 
 std::vector<City> Tour::getPermutation()

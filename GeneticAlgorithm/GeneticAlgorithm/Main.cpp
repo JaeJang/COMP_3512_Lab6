@@ -1,5 +1,6 @@
 #include "Genetic.hpp"
-
+#include <iostream>
+#include <iomanip>
 
 
 
@@ -24,6 +25,12 @@ int main() {
 	Populate(population, cities_to_visit);
 
 	index_of_shortest_tour = determine_fitness(population);
+	best_distance = FITNESS_SCALER / population[index_of_shortest_tour].getFitness;
+	
+	cout << "Shortest distance in initial population: " 
+		<< fixed << setw(8) << setprecision(3) << best_distance << endl;
+
+
 
 	return 0;
 }
