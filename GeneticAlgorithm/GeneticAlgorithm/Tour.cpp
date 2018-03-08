@@ -27,3 +27,8 @@ void Tour::setFitness(double value)
 {
 	fintness = value;
 }
+
+std::vector<City> Tour::getPermutation()
+{
+	return permutation;
+}

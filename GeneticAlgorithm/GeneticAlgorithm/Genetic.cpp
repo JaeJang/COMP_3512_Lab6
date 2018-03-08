@@ -1,6 +1,6 @@
 #include "Genetic.hpp"
 
-void Genetic::Init_Cities()
+void Genetic::Init_Cities(vector<City> & cities_to_visit)
 {
 	for (int i = 0; i < CITIES_IN_TOUR; ++i) {
 		cities_to_visit.push_back(
@@ -15,13 +15,13 @@ void Genetic::Init_Cities()
 
 }
 
-void Genetic::Populate()
+void Genetic::Populate(vector<Tour> & population)
 {
 	for (int i = 0; i < POPULATION_SIZE; ++i) {
 
 		population.push_back(Tour());
 		for (int j = 0; j < CITIES_IN_TOUR; ++j) {
-			population[i].permutation.push_back(cities_to_visit[j]);
+			population[i].getPermutation().push_back(cities_to_visit[j]);
 		}
 		population[i].shuffle_cities(SHUFFLES, CITIES_IN_TOUR);
 		population[i].setFitness(0);
