@@ -45,10 +45,21 @@ int determine_fitness(vector<Tour> & population)
 	return index_of_shortest_tour;
 }
 
+double getBestDistance(vector<Tour>& population)
+{
+	index_of_shortest_tour = determine_fitness(population);
+	return FITNESS_SCALER / population[index_of_shortest_tour].getFitness();
+}
+
 void findEvolution(vector<Tour>& population)
 {
 	for (iterations = 0; iterations < ITERATIONS; ++iterations) {
 
+		if (index_of_shortest_tour != 0) {
+			Tour temp(population[0]);
+			population[0] = population[index_of_shortest_tour];
+			population[index_of_shortest_tour] = temp;
+		}
 
 	}
 }

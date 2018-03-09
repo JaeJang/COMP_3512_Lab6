@@ -43,8 +43,10 @@ constexpr static int ASCII_OFFSET = 65;
 constexpr static int MAP_BOUNDARY = 1000;
 
 int iterations = 0;
+int    index_of_shortest_tour = 0;
 
 void Init_Cities(vector<City> & cities_to_visit);
 void Populate(vector<Tour> & population, const vector<City> & cities_to_visit);
 int determine_fitness(vector<Tour> & population);
+double getBestDistance(vector<Tour> & population);
 void findEvolution(vector<Tour> & population);

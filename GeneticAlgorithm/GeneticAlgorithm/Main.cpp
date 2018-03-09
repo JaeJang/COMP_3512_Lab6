@@ -14,7 +14,7 @@ int main() {
 	vector<City> cities_to_visit;
 
 	/* Variables */
-	int    index_of_shortest_tour = 0;
+	
 	double best_distance = 0.0;
 	double best_iteration_distance = 0.0;
 	double improvement_factor = 0.3;
@@ -23,8 +23,8 @@ int main() {
 	Init_Cities(cities_to_visit);
 	Populate(population, cities_to_visit);
 
-	index_of_shortest_tour = determine_fitness(population);
-	best_distance = FITNESS_SCALER / population[index_of_shortest_tour].getFitness();
+	
+	best_distance = getBestDistance(population);
 	
 	cout << "Shortest distance in initial population: " 
 		<< fixed << setw(8) << setprecision(3) << best_distance << endl;

@@ -10,6 +10,17 @@ Tour::Tour(const Tour & rhs) {
 	permutation = rhs.permutation;
 }
 
+void swap(Tour & lhs, Tour & rhs) {
+	std::swap(lhs.fitness, rhs.fitness);
+	std::swap(lhs.permutation, rhs.permutation);
+}
+
+Tour & Tour::operator=(Tour rhs) {
+	swap(*this, rhs);
+
+	return *this;
+}
+
 void Tour::shuffle_cities(const int SHUFFLES, const int CITIES_IN_TOUR)
 {
 	srand(time(NULL));
