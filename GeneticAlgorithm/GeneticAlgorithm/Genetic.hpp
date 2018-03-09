@@ -50,3 +50,5 @@ void Populate(vector<Tour> & population, const vector<City> & cities_to_visit);
 int determine_fitness(vector<Tour> & population);
 double getBestDistance(vector<Tour> & population);
 void findEvolution(vector<Tour> & population);
+vector<Tour> select_parents(vector<Tour> & population);
+Tour crossover(vector<Tour> & parent);
