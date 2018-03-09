@@ -28,7 +28,7 @@ void Populate(vector<Tour> & population, const vector<City> & cities_to_visit)
 	}
 }
 
-int determine_fitness(vector<Tour> population)
+int determine_fitness(vector<Tour> & population)
 {	
 	int index_of_shortest_tour = 0;
 	double shortest_tour_in_population = (double)RAND_MAX;
@@ -43,4 +43,12 @@ int determine_fitness(vector<Tour> population)
 		}
 	}
 	return index_of_shortest_tour;
+}
+
+void findEvolution(vector<Tour>& population)
+{
+	for (iterations = 0; iterations < ITERATIONS; ++iterations) {
+
+
+	}
 }

@@ -5,6 +5,11 @@
 #include "City.hpp"
 
 
+Tour::Tour(const Tour & rhs) {
+	fitness = rhs.fitness;
+	permutation = rhs.permutation;
+}
+
 void Tour::shuffle_cities(const int SHUFFLES, const int CITIES_IN_TOUR)
 {
 	srand(time(NULL));

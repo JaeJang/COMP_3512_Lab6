@@ -7,7 +7,8 @@ class Tour {
 public:
 	//std::vector<City> permutation;
 
-	Tour() {}
+	Tour() :  {}
+	Tour(const Tour & rhs);
 
 	void shuffle_cities(int, int);
 	void swap_cities(int, int);
