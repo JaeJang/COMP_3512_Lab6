@@ -10,7 +10,8 @@ int main() {
 
 	//Tour population[POPULATION_SIZE];
 	//City cities_to_visit[CITIES_IN_TOUR];
-	vector<Tour> population;
+	Population population(POPULATION_SIZE, CITIES_IN_TOUR, SHUFFLES);
+	//vector<Tour> population;
 	vector<City> cities_to_visit;
 
 	/* Variables */
@@ -21,7 +22,8 @@ int main() {
 
 
 	Init_Cities(cities_to_visit);
-	Populate(population, cities_to_visit);
+	//Populate(population, cities_to_visit);
+	population.Populate(cities_to_visit);
 
 	
 	best_distance = getBestDistance(population);

@@ -29,13 +29,13 @@ void Tour::shuffle_cities(const int SHUFFLES, const int CITIES_IN_TOUR)
 		index_one = rand() % CITIES_IN_TOUR;
 		index_two = rand() % CITIES_IN_TOUR;
 
-
+		swap_cities(index_one, index_two);
 	}
 }
 
 void Tour::swap_cities(int index_one, int index_two)
 {	
-	City temp(permutation[index_one]);
+	City *temp = permutation[index_one];
 	permutation[index_one] = permutation[index_two];
 	permutation[index_two] = temp;
 }
@@ -49,7 +49,7 @@ void Tour::setFitness(double value)
 	fitness = value;
 }
 
-std::vector<City> Tour::getPermutation()
+std::vector<City*> Tour::getPermutation()
 {
 	return permutation;
 }

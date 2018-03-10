@@ -6,6 +6,7 @@
 #include <vector>
 #include "City.hpp"
 #include "Tour.hpp"
+#include "Population.hpp"
 
 using namespace std;
 

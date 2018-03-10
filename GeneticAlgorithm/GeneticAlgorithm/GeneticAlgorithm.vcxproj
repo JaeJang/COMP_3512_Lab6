@@ -118,12 +118,14 @@
     <ClCompile Include="City.cpp" />
     <ClCompile Include="Genetic.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Population.cpp" />
     <ClCompile Include="Tour.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="City.hpp" />
     <ClInclude Include="Genetic.hpp" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="Population.hpp" />
     <ClInclude Include="Tour.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
