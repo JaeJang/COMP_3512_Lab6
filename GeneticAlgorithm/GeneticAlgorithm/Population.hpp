@@ -34,12 +34,20 @@ public:
 
 
 	void Populate(std::vector<City> * cities_to_visit);
-	int determine_fitness();
+	
 	double getBestDistance();
+	void Selection();
+	void Crossover();
 
 private:
 
 	std::vector<Tour> tours;
+	std::vector<Tour> parents;
+	std::vector<Tour> crosses;
+	Tour child;
 	int index_of_shortest;
-		
+	
+	int determine_fitness();
+	void select_parents();
+	void _crossover();
 };

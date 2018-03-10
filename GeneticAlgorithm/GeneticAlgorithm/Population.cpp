@@ -35,3 +35,20 @@ double Population::getBestDistance()
 	index_of_shortest = determine_fitness();
 	return FITNESS_SCALER / tours[index_of_shortest].getFitness();
 }
+
+void Population::Selection()
+{
+	if (index_of_shortest != 0) {
+		Tour temp(tours[0]);
+		tours[0] = tours[index_of_shortest];
+		tours[index_of_shortest] = temp;
+	}
+}
+
+void Population::Crossover()
+{
+	for (int i = 0; i < (POPULATION_SIZE - NUMBER_OF_ELITES); ++i) {
+		select_parents();
+		_crossover();
+	}
+}

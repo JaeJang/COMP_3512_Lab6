@@ -6,7 +6,6 @@
 class Tour {
 public:
 	//std::vector<City> permutation;
-
 	Tour() { }
 	Tour(const Tour & rhs);
 
