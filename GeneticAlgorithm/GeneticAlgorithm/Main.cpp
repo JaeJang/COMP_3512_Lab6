@@ -11,8 +11,6 @@ int main() {
 	/* Variables */
 
 	double best_distance = 0.0;
-	double best_iteration_distance = 0.0;
-	double improvement_factor = 0.3;
 
 	Population population;
 	vector<City> cities_to_visit;
@@ -29,10 +27,13 @@ int main() {
 	for (int iterations = 0; iterations < ITERATIONS; ++iterations) {
 
 		population.Selection();
+		//std::cout << "aa" << std::endl;
 		population.Crossover();
 		population.Mutate();
-
+		population.Evaluation(best_distance);
 	}
+
+	population.PrintResult();
 
 	system("pause");
 

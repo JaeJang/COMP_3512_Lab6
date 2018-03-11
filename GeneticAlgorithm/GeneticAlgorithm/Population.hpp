@@ -30,7 +30,7 @@ public:
 	// The number of 'fittest' that remain uncrossed and unmutated into the next gen
 	constexpr static int NUMBER_OF_ELITES = 1;
 
-	Population(){}
+	Population(){ srand(time(NULL)); }
 
 
 	void Populate(std::vector<City> * cities_to_visit);
@@ -39,7 +39,7 @@ public:
 	void Selection();
 	void Crossover();
 	void Mutate();
-	void Evaluation();
+	void Evaluation(double&);
 	void PrintResult();
 
 private:

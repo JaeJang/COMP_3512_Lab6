@@ -25,6 +25,3 @@ constexpr static int MAP_BOUNDARY = 1000;
 //int    index_of_shortest_tour = 0;
 
 void Init_Cities(vector<City> * cities_to_visit);
-void findEvolution(vector<Tour> & population);
-vector<Tour> select_parents(vector<Tour> & population);
-Tour crossover(vector<Tour> & parent);

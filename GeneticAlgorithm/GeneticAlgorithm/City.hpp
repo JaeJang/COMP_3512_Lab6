@@ -16,7 +16,7 @@ public:
 	char getName() { return name;  }
 	int getX_coordinate() { return x_coordinate; }
 	int getY_coordinate() { return y_coordinate; }
-	friend double get_distance_between_cities(const City * a, const City * b);
+	double get_distance_between_cities(City * b);
 	friend void swap(City& lsh, City &rhs);
 	City & operator=(City lhs);
 

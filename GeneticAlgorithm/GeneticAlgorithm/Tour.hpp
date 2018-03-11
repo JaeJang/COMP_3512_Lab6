@@ -20,8 +20,8 @@ public:
 	double getFitness();
 	double get_tour_distance(const int cities_in_tour);
 	//double get_distance_between_cities(City & a, City & b);
+	std::vector<City*> permutation;
 
 private:
-	std::vector<City*> permutation;
 	double fitness = 0.0;
 };

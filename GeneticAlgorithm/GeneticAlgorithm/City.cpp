@@ -15,10 +15,10 @@ City & City::operator=(City lhs)
 }
 
 
-double get_distance_between_cities(const City * a, const City * b)
+double City::get_distance_between_cities(City * b)
 {
-	return sqrt(pow((double)(a->x_coordinate - b->x_coordinate), 2.0) +
-		pow((double)a->y_coordinate - b->y_coordinate, 2.0));;
+	return sqrt(pow((double)(x_coordinate - b->x_coordinate), 2.0) +
+		pow((double) (y_coordinate - b->y_coordinate), 2.0));
 }
 
 void swap(City & lsh, City & rhs)
