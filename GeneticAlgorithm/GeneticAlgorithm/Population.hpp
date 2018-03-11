@@ -19,7 +19,7 @@ public:
 
 	// Number of members randomly selected from the population, from which the
 	// fittest is made a 'parent'
-	constexpr static int PARENT_POLL_SIZE = 5;
+	constexpr static int PARENT_POOL_SIZE = 5;
 
 	// Chance of being mutated
 	constexpr static double MUTATION_RATE = 0.15;
@@ -47,7 +47,8 @@ private:
 	Tour child;
 	int index_of_shortest;
 	
-	int determine_fitness();
+	int determine_fitness(std::vector<Tour> * population, int population_size);
 	void select_parents();
 	void _crossover();
+	bool contains_city(Tour *, int, City *);
 };

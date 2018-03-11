@@ -9,15 +9,9 @@ private:
 public:
 	City() {}
 	City(char name, int x, int y)
-		:name(name), x_coordinate(x), y_coordinate(y)
-	{
+		:name(name), x_coordinate(x), y_coordinate(y) {}
 
-	}
-	City(const City & rhs) {
-		name = rhs.name;
-		x_coordinate = rhs.x_coordinate;
-		y_coordinate = rhs.y_coordinate;
-	}
+	City(const City & rhs);
 
 	char getName() { return name;  }
 	int getX_coordinate() { return x_coordinate; }
