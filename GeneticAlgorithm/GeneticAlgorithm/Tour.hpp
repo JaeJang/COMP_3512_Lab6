@@ -18,7 +18,7 @@ public:
 	void setFitness(double value);
 	std::vector<City*> getPermutation();
 	double getFitness();
-	double get_tour_distane(const int cities_in_tour);
+	double get_tour_distance(const int cities_in_tour);
 	//double get_distance_between_cities(City & a, City & b);
 
 private:

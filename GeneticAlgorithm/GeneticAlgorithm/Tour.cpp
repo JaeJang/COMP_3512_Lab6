@@ -54,7 +54,7 @@ std::vector<City*> Tour::getPermutation()
 	return permutation;
 }
 
-double Tour::get_tour_distane(const int cities_in_tour)
+double Tour::get_tour_distance(const int cities_in_tour)
 {	
 	double distance = 0.0;
 	for (int i = 0; i < cities_in_tour; ++i) {

@@ -38,17 +38,19 @@ public:
 	double getBestDistance();
 	void Selection();
 	void Crossover();
+	void Mutate();
+	void Evaluation();
+	void PrintResult();
 
 private:
 
 	std::vector<Tour> tours;
-	std::vector<Tour> parents;
 	std::vector<Tour> crosses;
-	Tour child;
 	int index_of_shortest;
 	
 	int determine_fitness(std::vector<Tour> * population, int population_size);
-	void select_parents();
-	void _crossover();
+	void select_parents(std::vector<Tour> * parents);
+	void _crossover(std::vector<Tour> * parents, Tour * child);
 	bool contains_city(Tour *, int, City *);
+	
 };

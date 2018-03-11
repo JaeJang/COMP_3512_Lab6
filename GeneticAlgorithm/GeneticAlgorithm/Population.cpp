@@ -1,3 +1,5 @@
+#include <iostream>
+#include <iomanip>
 #include "Population.hpp"
 
 void Population::Populate(std::vector<City> * cities_to_visit)
@@ -49,16 +51,25 @@ void Population::Selection()
 
 void Population::Crossover()
 {
+	
+
 	for (int i = 0; i < (POPULATION_SIZE - NUMBER_OF_ELITES); ++i) {
-		select_parents();
-		_crossover();
+		std::vector<Tour> parents;
+		Tour child;
+		select_parents(&parents);
+		_crossover(&parents, &child);
+		crosses[i] = child;
+	}
+
+	for (int i = NUMBER_OF_ELITES; i < POPULATION_SIZE; ++i) {
+		tours[i] = crosses[i - NUMBER_OF_ELITES];
+		tours[i].setFitness(0.0);
 	}
 }
 
-void Population::select_parents()
+void Population::select_parents(std::vector<Tour> * parents)
 {
 	int k(0), parent_index(0);
-
 	std::vector<Tour> parent_pool;
 
 	for (int i = 0; i < NUMBER_OF_PARENTS; ++i) {
@@ -67,27 +78,29 @@ void Population::select_parents()
 			parent_pool[j] = tours[k];
 		}
 		parent_index = determine_fitness(&parent_pool, PARENT_POOL_SIZE);
-		parents[i] = parent_pool[parent_index];
+		(*parents)[i] = parent_pool[parent_index];
 	}
 	
 }
 
-void Population::_crossover()
+void Population::_crossover(std::vector<Tour> * parents, Tour * child)
 {
 	int boundary_index = rand() % CITIES_IN_TOUR;
-	child.setFitness(0.0);
+	child->setFitness(0.0);
 	for (int i = 0; i < boundary_index; ++i) {
-		child.getPermutation().push_back(parents[0].getPermutation[i]);
+		child->getPermutation()[i] = (*parents)[0].getPermutation()[i];
 	}
 
 	while (boundary_index < CITIES_IN_TOUR) {
 		for (int i = 0; i < CITIES_IN_TOUR; ++i) {
-			if (!contains_city(&child, boundary_index, parents[1].getPermutation()[i])) {
-				child.getPermutation()[boundary_index] = parents[1].getPermutation()[i];
+			if (!contains_city(child, boundary_index, (*parents)[1].getPermutation()[i])) {
+				child->getPermutation()[boundary_index] = (*parents)[1].getPermutation()[i];
 				boundary_index++;
 			}
 		}
 	}
+
+
 }
 
 bool Population::contains_city(Tour * candidate_tour, int length, City * candidate_city)
@@ -100,4 +113,33 @@ bool Population::contains_city(Tour * candidate_tour, int length, City * candida
 		}
 	}
 	return false;
+}
+
+
+void Population::Mutate() {
+	int k(0);
+	double mutates(0.0);
+
+	for (int i = 0 + NUMBER_OF_ELITES; i < POPULATION_SIZE; ++i) {
+		for (int j = 0; j < CITIES_IN_TOUR; ++j) {
+			mutates = (double)rand() / (double)RAND_MAX;
+			if (mutates <= MUTATION_RATE) {
+				k = rand() % CITIES_IN_TOUR;
+				tours[i].swap_cities(j, k);
+			}
+		}
+	}
+}
+
+void Population::Evaluation() {
+	index_of_shortest = determine_fitness(&tours, POPULATION_SIZE);
+	
+	int best_iteration_distance;
+	best_iteration_distance = tours[index_of_shortest].get_tour_distance(CITIES_IN_TOUR);
+}
+
+void Population::PrintResult() {
+	using namespace std;
+	cout << "Shortest distance " << fixed << setw(8) << setprecision(3)
+		<< (FITNESS_SCALER / tours[index_of_shortest].getFitness()) << endl;
 }

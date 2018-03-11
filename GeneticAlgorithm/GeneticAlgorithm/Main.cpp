@@ -30,9 +30,11 @@ int main() {
 
 		population.Selection();
 		population.Crossover();
+		population.Mutate();
 
 	}
 
+	system("pause");
 
 
 	return 0;
