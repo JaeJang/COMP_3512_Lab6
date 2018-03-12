@@ -14,7 +14,8 @@ City & City::operator=(City lhs)
 	return *this;
 }
 
-
+//Get the distanece between two cities
+//RETURN: distanece between two cities in double
 double City::get_distance_between_cities(City * b)
 {
 	return sqrt(pow((double)(x_coordinate - b->x_coordinate), 2.0) +

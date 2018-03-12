@@ -4,6 +4,10 @@
 #include <vector>
 using namespace std;
 
+//Populates and shuffles cities
+//PRE	: the master list is set
+//POST	: populates each tour
+//		  ans shuffles the cities in that tours
 void Population::Populate(std::vector<City> * cities_to_visit)
 {	
 	for (int i = 0; i < POPULATION_SIZE; ++i) {
@@ -17,6 +21,11 @@ void Population::Populate(std::vector<City> * cities_to_visit)
 
 }
 
+//Calcuates the fitness of each tour and get 
+//the index of the shortest distance of tour
+//PRE	: population_size is the length of population
+//POST	: The fitness of each tour is set
+//RETURN: index of the shortes distance of tour
 int Population::determine_fitness(std::vector<Tour> * population, int population_size)
 {
 	int index_of_shortest_tour = 0;
@@ -35,13 +44,17 @@ int Population::determine_fitness(std::vector<Tour> * population, int population
 }
 
 
-
+//Get the best distance in tours based on the index of the shortest tour
+//RETURN: the best distance from the initial population in double
 double Population::getBestDistance()
 {
 	index_of_shortest = determine_fitness(&tours, POPULATION_SIZE);
 	return FITNESS_SCALER / tours[index_of_shortest].getFitness();
 }
 
+//keep the best route by moving the fittest to the front of the population
+//Cleare crosses vector
+//POST	: changes 0 index tour to the best tour
 void Population::Selection()
 {
 	crosses.clear();
@@ -71,6 +84,7 @@ void Population::Crossover()
 	}
 }
 
+//Select 2 tours from population
 void Population::select_parents(std::vector<Tour> * parents)
 {
 	int k(0), parent_index(0);
@@ -83,6 +97,7 @@ void Population::select_parents(std::vector<Tour> * parents)
 		}
 		parent_index = determine_fitness(&parent_pool, PARENT_POOL_SIZE);
 		(*parents).push_back(parent_pool[parent_index]);
+		parent_pool.clear();
 	}
 	
 }

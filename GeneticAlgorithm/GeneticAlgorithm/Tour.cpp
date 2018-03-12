@@ -6,16 +6,23 @@
 #include "City.hpp"
 
 
+//Copy constructor
 Tour::Tour(const Tour & rhs) {
 	fitness = rhs.fitness;
 	permutation = rhs.permutation;
 }
 
+//Swap values of two objects
+//PRE	: both are Tour instance
+//POST	: swap each other
 void swap(Tour & lhs, Tour & rhs) {
 	std::swap(lhs.fitness, rhs.fitness);
 	std::swap(lhs.permutation, rhs.permutation);
 }
 
+//Overloaded assignment operator
+//PRE	: both sides are instance of Tour
+//POST	: lhs is overrided with rhs
 Tour & Tour::operator=(Tour rhs) {
 	swap(*this, rhs);
 
@@ -57,6 +64,10 @@ std::vector<City*> Tour::getPermutation()
 	return permutation;
 }
 
+//Get the total distance between cities in permutation
+//PRE	: NULL
+//POST	: NULL
+//RETURN: the total distance in double
 double Tour::get_tour_distance(const int cities_in_tour)
 {	
 	double distance = 0.0;

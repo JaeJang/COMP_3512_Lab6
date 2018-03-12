@@ -8,8 +8,6 @@ int main() {
 
 	using namespace std;
 
-	/* Variables */
-
 	double best_distance = 0.0;
 
 	Population population;
@@ -27,7 +25,6 @@ int main() {
 	for (int iterations = 0; iterations < ITERATIONS; ++iterations) {
 
 		population.Selection();
-		//std::cout << "aa" << std::endl;
 		population.Crossover();
 		population.Mutate();
 		population.Evaluation(best_distance);
