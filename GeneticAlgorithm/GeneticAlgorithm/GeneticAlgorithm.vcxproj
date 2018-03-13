@@ -124,7 +124,6 @@
   <ItemGroup>
     <ClInclude Include="City.hpp" />
     <ClInclude Include="Genetic.hpp" />
-    <ClInclude Include="Main.h" />
     <ClInclude Include="Population.hpp" />
     <ClInclude Include="Tour.hpp" />
   </ItemGroup>

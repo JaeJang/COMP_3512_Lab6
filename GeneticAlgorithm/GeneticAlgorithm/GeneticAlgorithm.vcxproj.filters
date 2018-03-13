@@ -41,9 +41,6 @@
     <ClInclude Include="City.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Population.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
