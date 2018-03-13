@@ -19,6 +19,7 @@ public:
 	double get_distance_between_cities(City * b);
 	friend void swap(City& lsh, City &rhs);
 	City & operator=(City lhs);
+	friend bool operator==(const City & lhs, const City & rhs);
 
 
 

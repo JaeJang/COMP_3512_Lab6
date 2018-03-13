@@ -29,6 +29,9 @@ Tour & Tour::operator=(Tour rhs) {
 	return *this;
 }
 
+//Shuffles the cities
+//PRE	: NULL
+//POST	: the cities in permutaion have been shuffled
 void Tour::shuffle_cities(const int SHUFFLES, const int CITIES_IN_TOUR)
 {
 	srand(time(NULL));
@@ -42,6 +45,9 @@ void Tour::shuffle_cities(const int SHUFFLES, const int CITIES_IN_TOUR)
 	}
 }
 
+//Swap two pointers of city stored in permutaion on the basis of parameters
+//PRE	: 0 <= index_one, index_two < total number of city
+//POST	: two pointers are swapped
 void Tour::swap_cities(int index_one, int index_two)
 {	
 	
@@ -59,10 +65,6 @@ void Tour::setFitness(double value)
 	fitness = value;
 }
 
-std::vector<City*> Tour::getPermutation()
-{
-	return permutation;
-}
 
 //Get the total distance between cities in permutation
 //PRE	: NULL
